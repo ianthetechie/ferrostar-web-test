@@ -8,8 +8,8 @@ import {FerrostarMap} from "@stadiamaps/ferrostar-webcomponents";
       valhallaEndpointUrl="https://api.stadiamaps.com/route/v1"
       styleUrl="https://tiles.stadiamaps.com/styles/outdoors.json"
       profile="bicycle"
-      :center="{lng: -122.42, lat: 37.81}"
-      :zoom=6
+      :center="{lng: 126.8, lat: 37.6}"
+      :zoom=11
       :pitch="45"
       :useIntegratedSearchBox=true
   ></ferrostar-map>
