@@ -1,10 +1,25 @@
 <script setup>
 import {FerrostarMap} from "@stadiamaps/ferrostar-webcomponents";
+import {onMounted, ref} from "vue";
+import {GeolocateControl} from "maplibre-gl";
+
+const map = ref(null)
+
+onMounted(() => {
+  setTimeout(() => {
+    map.value.map.addControl(new GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true
+      },
+      trackUserLocation: true
+    }))
+  }, 100)
+})
 </script>
 
 <template>
   <ferrostar-map
-      id="core"
+      ref="map"
       valhallaEndpointUrl="https://api.stadiamaps.com/route/v1"
       styleUrl="https://tiles.stadiamaps.com/styles/outdoors.json"
       profile="bicycle"

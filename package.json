@@ -11,6 +11,7 @@
   "dependencies": {
     "@stadiamaps/ferrostar": "^0.9.2",
     "@stadiamaps/ferrostar-webcomponents": "^0.1.4",
+    "maplibre-gl": "^4.6.0",
     "vue": "^3.4.29"
   },
   "devDependencies": {
