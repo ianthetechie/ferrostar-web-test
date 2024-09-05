@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@stadiamaps/ferrostar-webcomponents": "^0.9.2",
+    "@stadiamaps/ferrostar-webcomponents": "^0.10.1",
     "maplibre-gl": "^4.6.0",
     "vue": "^3.4.29"
   },
