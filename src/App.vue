@@ -56,7 +56,7 @@ const locationProvider = new BrowserLocationProvider();
       styleUrl="https://tiles.stadiamaps.com/styles/outdoors.json"
       profile="bicycle"
       :center="{lng: 126.8, lat: 37.6}"
-      :zoom=11
+      :zoom=6
       :pitch="45"
       :locationProvider="locationProvider"
       :configureMap="map => map.addControl(searchBox, 'top-left')"
