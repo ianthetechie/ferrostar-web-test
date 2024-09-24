@@ -3,7 +3,7 @@ import {
   BrowserLocationProvider,
   FerrostarMap
 } from "@stadiamaps/ferrostar-webcomponents";
-import {Ref, ref} from "vue";
+import {onMounted, Ref, ref} from "vue";
 import {MapLibreSearchControl} from "@stadiamaps/maplibre-search-box";
 import searchBoxStyle from "@stadiamaps/maplibre-search-box/dist/style.css?inline";
 
@@ -47,6 +47,17 @@ const searchBox = new MapLibreSearchControl({
 });
 
 const locationProvider = new BrowserLocationProvider();
+
+onMounted(() => {
+  // More complex properties should be set here.
+  // Web components fundamentally use string-based attributes,
+  // so while some of these *can* work as v-bind props,
+  // it's best to do it like this.
+  ferrostarMapRef.value.locationProvider = locationProvider;
+  ferrostarMapRef.value.configureMap = (map) => map.addControl(searchBox, 'top-left');
+  ferrostarMapRef.value.onNavigationStart = (map) => map.removeControl(searchBox);
+  ferrostarMapRef.value.onNavigationStop = (map) => map.addControl(searchBox, 'top-left');
+});
 </script>
 
 <template>
@@ -58,8 +69,6 @@ const locationProvider = new BrowserLocationProvider();
       :center="{lng: 126.8, lat: 37.6}"
       :zoom=6
       :pitch="45"
-      :locationProvider="locationProvider"
-      :configureMap="map => map.addControl(searchBox, 'top-left')"
       :customStyles="searchBoxStyle"
   ></ferrostar-map>
 </template>
